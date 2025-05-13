@@ -27,11 +27,18 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 md:px-6 z-20">
         <div className="flex flex-col items-center text-center">
+          <h5 
+            className={`text-lg md:text-xl text-gym-white/90 mb-3 transition-opacity duration-700 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+          >
+            BEST GYM OF THE CITY FOR FITNESS
+          </h5>
+          
           <h1 
             className={`text-5xl md:text-7xl font-extrabold mb-6 transition-opacity duration-700 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
           >
-            <span className="text-stroke">BUILD YOUR</span><br />
-            <span className="text-gym-red">PERFECT BODY</span>
+            <span className="text-white">TRAIN WITH </span>
+            <span className="text-gym-red">BEST</span><br />
+            <span className="text-yellow-400 font-black">GYM EXPERIENCE</span>
           </h1>
           
           <p 
@@ -45,7 +52,7 @@ const Hero = () => {
           >
             <Button 
               size="lg" 
-              className="bg-gym-red hover:bg-red-600 text-white px-8 py-6 text-lg hover-scale"
+              className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-8 py-6 text-lg hover-scale"
             >
               Start Your Journey
             </Button>

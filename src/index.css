@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -55,6 +55,16 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
   }
+
+  /* Hide scrollbar for chrome and safari */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for firefox */
+  html {
+    scrollbar-width: none;
+  }
 }
 
 @layer utilities {
@@ -64,6 +74,16 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-gym-red to-orange-500;
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px theme('colors.gym.red');
+    color: transparent;
+  }
+
+  .yellow-stroke {
+    -webkit-text-stroke: 1px theme('colors.yellow.400');
+    color: transparent;
   }
 
   .animate-delay-100 {
@@ -82,11 +102,6 @@
     animation-delay: 500ms;
   }
 
-  .text-stroke {
-    -webkit-text-stroke: 1px theme('colors.gym.red');
-    color: transparent;
-  }
-
   .hover-scale {
     @apply transition-transform duration-300 ease-out;
   }
@@ -95,7 +110,66 @@
     @apply transform scale-105;
   }
 
+  .hover-scale-sm:hover {
+    @apply transform scale-[1.02] transition-transform duration-300;
+  }
+
   .nav-blur {
-    @apply bg-black/70 backdrop-blur-md;
+    @apply bg-black/80 backdrop-blur-md;
+  }
+
+  .clip-path-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+  }
+
+  .highlight-link {
+    position: relative;
+  }
+
+  .highlight-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: theme('colors.yellow.400');
+    transition: width 0.3s ease-out;
+  }
+
+  .highlight-link:hover::after {
+    width: 100%;
+  }
+
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+  
+  .marquee-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .mobile-text-center {
+      text-align: center;
+    }
+    
+    .mobile-p-adjust {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .mobile-smaller-h {
+      font-size: 1.75rem;
+    }
   }
 }

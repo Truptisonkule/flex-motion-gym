@@ -112,6 +112,14 @@ export default {
 				'scale-up': {
 					'0%': { transform: 'scale(0.9)', opacity: '0' },
 					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'marquee': {
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-100%)' }
+				},
+				'text-flicker': {
+					'0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': { opacity: '1' },
+					'20%, 21.999%, 63%, 63.999%, 65%, 69.999%': { opacity: '0.33' }
 				}
 			},
 			animation: {
@@ -124,6 +132,8 @@ export default {
 				'pulse-soft': 'pulse-soft 2s infinite ease-in-out',
 				'bounce-subtle': 'bounce-subtle 2s infinite ease-in-out',
 				'scale-up': 'scale-up 0.5s ease-out forwards',
+				'marquee': 'marquee 25s linear infinite',
+				'text-flicker': 'text-flicker 2s linear infinite'
 			}
 		}
 	},
